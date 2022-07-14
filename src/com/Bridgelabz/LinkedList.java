@@ -7,7 +7,7 @@ public class LinkedList {
     Node tail;
     static LinkedList ll = new LinkedList();
     static Scanner scanner = new Scanner(System.in);
-    public void addNode(int data) {
+    public Node addNode(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = newNode;
@@ -17,6 +17,7 @@ public class LinkedList {
             this.head = newNode;
             newNode.next = temp;
         }
+        return newNode;
     }
     public void print() {
         if (head == null) {
@@ -50,6 +51,11 @@ public class LinkedList {
             display();
         }
     }
+    public void insertInBetween(Node head,Node newNode){
+            Node tempNode = head.next;
+            head.next = newNode;
+            newNode.next = tempNode;
+    }
     public void display() {
         System.out.print("\nDo you want to add a node? (1/0) : ");
         int yn = scanner.nextInt();
@@ -57,7 +63,7 @@ public class LinkedList {
             System.out.print("How many nodes you want to add: ");
             int no = scanner.nextInt();
             for (int i =1; i<=no; i++) {
-                System.out.print("\n1-> Add data at start \n2-> Append data \n0-> Stop : ");
+                System.out.print("\n1-> Add data at start \n2-> Append data \n3-> Insert In-Between \n0-> Stop : ");
                 int add = scanner.nextInt();
                 System.out.print("\nEnter a new node: ");
                 int num = scanner.nextInt();
@@ -68,6 +74,11 @@ public class LinkedList {
                     }
                     case 2 -> {
                         ll.append(num);
+                        print();
+                    }
+                    case 3 -> {
+                        Node newNode = new Node(num);
+                        ll.insertInBetween(head,newNode);
                         print();
                     }
                     case 0 -> {

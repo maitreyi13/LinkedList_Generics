@@ -23,7 +23,7 @@ public class LinkedList {
         if (head == null) {
             System.out.println("Linked List is Empty");
         } else {
-            System.out.print("Linked List -> ");
+            System.out.print("List -> ");
             Node temp = head;
             while (temp != null) {
                 System.out.print(temp.data+ " ");

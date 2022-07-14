@@ -59,6 +59,14 @@ public class LinkedList {
     public void pop() {
         this.head = this.head.next;
     }
+    public void popLast() {
+        Node tempNode= head;
+        while(!tempNode.next.equals(tail)){
+            tempNode=tempNode.next;
+        }
+        this.tail = tempNode;
+        tempNode.next =null;
+    }
     public void display() {
         System.out.print("\nDo you want to add a node? (1/0) : ");
         int yn = scanner.nextInt();
@@ -66,7 +74,7 @@ public class LinkedList {
             System.out.print("How many nodes you want to add or delete: ");
             int no = scanner.nextInt();
             for (int i =1; i<=no; i++) {
-                System.out.print("\n1-> Add a node at start \n2-> Append a node \n3-> Insert a node In-Between \n4-> Delete first node\n0-> Stop : ");
+                System.out.println("\n1-> Add a node at start \n2-> Append a node \n3-> Insert a node In-Between \n4-> Delete first node \n5-> Delete last node\n0-> Stop : ");
                 int add = scanner.nextInt();
                 switch (add) {
                     case 1 -> {
@@ -90,6 +98,10 @@ public class LinkedList {
                     }
                     case 4 -> {
                         pop();
+                        print();
+                    }
+                    case 5 -> {
+                        popLast();
                         print();
                     }
                     case 0 -> {

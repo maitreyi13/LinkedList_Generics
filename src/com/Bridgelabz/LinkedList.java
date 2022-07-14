@@ -56,16 +56,19 @@ public class LinkedList {
             head.next = newNode;
             newNode.next = tempNode;
     }
+    public void pop() {
+        this.head = this.head.next;
+    }
     public void display() {
         System.out.print("\nDo you want to add a node? (1/0) : ");
         int yn = scanner.nextInt();
         if(yn == 1) {
-            System.out.print("How many nodes you want to add: ");
+            System.out.print("How many nodes you want to add or delete: ");
             int no = scanner.nextInt();
             for (int i =1; i<=no; i++) {
-                System.out.print("\n1-> Add data at start \n2-> Append data \n3-> Insert In-Between \n0-> Stop : ");
+                System.out.print("\n1-> Add data at start \n2-> Append data \n3-> Insert In-Between \n4-> Delete data\n0-> Stop : ");
                 int add = scanner.nextInt();
-                System.out.print("\nEnter a new node: ");
+                System.out.print("\nEnter a node: ");
                 int num = scanner.nextInt();
                 switch (add) {
                     case 1 -> {
@@ -79,6 +82,10 @@ public class LinkedList {
                     case 3 -> {
                         Node newNode = new Node(num);
                         ll.insertInBetween(head,newNode);
+                        print();
+                    }
+                    case 4 -> {
+                        pop();
                         print();
                     }
                     case 0 -> {

@@ -21,9 +21,9 @@ public class LinkedList {
     }
     public void print() {
         if (head == null) {
-            System.out.println("Linked List is Empty");
+            System.out.println("\nEmpty list");
         } else {
-            System.out.print("List -> ");
+            System.out.print("\nList -> ");
             Node temp = head;
             while (temp != null) {
                 System.out.print(temp.data+ " ");

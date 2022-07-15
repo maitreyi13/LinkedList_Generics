@@ -17,11 +17,17 @@ public class Stack {
             System.out.print("How many items you want to add or delete: ");
             int no = scanner.nextInt();
             for (int i = 1; i <= no; i++) {
-                System.out.println("\n1-> Add an item  \n0-> Stop : ");
+                System.out.println("\n1-> Add an item \n2-> Pop the stack  \n0-> Stop : ");
                 int add = scanner.nextInt();
                 switch (add) {
                     case 1 -> push();
-
+                    case 2 -> {
+                        linkedList.print();
+                        for (int j=1; j< i; j++){
+                            linkedList.pop();
+                            linkedList.print();
+                        }
+                    }
                     case 0 -> {
                         linkedList.print();
                         System.out.println("Thank you!");

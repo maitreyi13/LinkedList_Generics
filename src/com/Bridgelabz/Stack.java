@@ -10,14 +10,20 @@ public class Stack {
         linkedList.addNode(num);
         linkedList.print();
     }
+    public void enqueue(){
+        System.out.print("Enter an item in queue: ");
+        int num = scanner.nextInt();
+        linkedList.append(num);
+        linkedList.print();
+    }
     public void display() {
-        System.out.print("\nDo you want to create a stack (1/0) : ");
+        System.out.print("\nDo you want to create Stack or Queue (1/0): ");
         int yn = scanner.nextInt();
         if (yn == 1) {
             System.out.print("How many items you want to add or delete: ");
             int no = scanner.nextInt();
             for (int i = 1; i <= no; i++) {
-                System.out.println("\n1-> Add an item \n2-> Pop the stack  \n0-> Stop : ");
+                System.out.println("\n1-> Add an item to stack \n2-> Pop the stack  \n3-> Add an item to queue \n0-> Stop : ");
                 int add = scanner.nextInt();
                 switch (add) {
                     case 1 -> push();
@@ -28,6 +34,7 @@ public class Stack {
                             linkedList.print();
                         }
                     }
+                    case 3 -> enqueue();
                     case 0 -> {
                         linkedList.print();
                         System.out.println("Thank you!");
